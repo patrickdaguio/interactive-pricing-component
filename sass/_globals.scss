@@ -1,0 +1,18 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  @include flex(flex, center, flex-start);
+  flex-direction: column;
+  background: url(/images/bg-pattern.svg) no-repeat;
+  background-size: 100% 448px;
+  background-color: $veryPaleBlue;
+  height: 100vh;
+}

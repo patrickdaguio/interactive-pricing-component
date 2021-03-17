@@ -1,0 +1,327 @@
+// Header
+.header {
+  text-align: center;
+  position: relative;
+  padding: 2em;
+  margin: 5em 0em 4em 0em;
+
+  @include media("<=600px") {
+    padding: 0em;
+    margin: 7em 0em 4em 0em;
+  }
+
+  &__title {
+    color: $darkBlue;
+    font-weight: $bold;
+    font-size: 1.75em;
+
+    @include media("<=600px") {
+      font-size: 1.2em;
+    }
+  }
+
+  &__desc {
+    margin-top: 0.75em;
+  }
+
+  &__line {
+    color: $grayishBlueText;
+    font-size: 15px;
+
+    @include media("<=600px") {
+      display: block;
+      font-size: 12.5px;
+      margin-bottom: 0.3em;
+    }
+  }
+
+  &__circles {
+    position: absolute;
+    top: -5px;
+    left: 155px;
+    z-index: -1;
+
+    @include media("<=600px") {
+      top: -28px;
+      left: 66px;
+      width: 52%;
+    }
+  }
+}
+
+// Component
+.component {
+  background: $white;
+  color: $grayishBlueText;
+  box-shadow: 6px 6px 14px $grayishBlueBar;
+  width: 540px;
+
+  @include media("<=600px") {
+    width: 325px;
+  }
+
+  // Header Text
+  &__header {
+    @include flex(flex, center, space-between);
+    flex-wrap: wrap;
+    padding: 2em 3.2em 0em 3.2em;
+
+    @include media("<=600px") {
+      flex-direction: column;
+      padding: 2.5em 1.5em;
+    }
+  }
+
+  &__views {
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: $normal;
+    text-transform: uppercase;
+
+    @include media("<=600px") {
+      order: 1;
+    }
+  }
+
+  &__amount {
+    @include flex(flex, center, center);
+    @include font(2.4em, $bold, $darkBlue);
+
+    @include media("<=600px") {
+      font-size: 2.2em;
+      order: 3;
+    }
+  }
+
+  &__month {
+    @include font(15px, $normal, $grayishBlueText);
+    margin-left: 0.5em;
+  }
+
+  // Input Slider
+
+  &__sliderContainer {
+    width: 100%;
+
+    @include media("<=600px") {
+      order: 2;
+    }
+  }
+
+  &__slider {
+    -webkit-appearance: none;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      $softCyan 0%,
+      $softCyan 50%,
+      $grayishBlueBar 50%,
+      $grayishBlueBar 100%
+    );
+    height: 8px;
+    border-radius: 6px;
+    margin: 3em 0em 4em 0em;
+    outline: none;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: url("/images/icon-slider.svg") no-repeat center;
+      background-color: $strongCyan;
+      box-shadow: 0px 16px 50px $strongCyan;
+      border-radius: 50%;
+      cursor: grab;
+
+      &:hover {
+        background-color: hsl(174, 86%, 65%);
+      }
+      &:active {
+        background-color: hsl(174, 86%, 35%);
+      }
+    }
+
+    &::-moz-slider-thumb {
+      -webkit-appearance: none;
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: url("/images/icon-slider.svg") no-repeat center;
+      background-color: $strongCyan;
+      box-shadow: 0px 16px 40px $strongCyan;
+      border-radius: 50%;
+      cursor: grab;
+    }
+
+    @include media("<=600px") {
+      margin: 3em 0em;
+    }
+  }
+
+  // Options
+
+  &__options {
+    @include flex(flex, center, flex-end);
+    width: 100%;
+    font-size: 12px;
+    margin-top: 0.5em;
+    padding: 0em 4.5em;
+
+    
+    @include media("<=600px") {
+      padding: 0em;
+    }
+  }
+
+  &__yearly {
+    margin-right: 0.7em;
+  }
+
+  &__discount {
+    padding: 3px 6px;
+    background: $grayishRed;
+    color: $lightRed;
+    border-radius: 25px;
+    margin-right: 1.5em;
+    font-size: 10px;
+
+    @include media("<=600px") {
+      span {
+        display: none;
+      }
+      &::after {
+        content: '-25%';
+      }
+    }
+  }
+
+  // Toggle CTA
+
+  &__switch {
+    position: relative;
+    display: inline-block;
+    height: 22px;
+    width: 44px;
+    margin: 0em 1.4em;
+
+    @include media("<=600px") {
+      margin: 0em 1em;
+    }
+  }
+
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked {
+      + .component__toggle {
+        background-color: $strongCyan;
+      }
+
+      + .component__toggle:before {
+        -webkit-transform: translateX(18px);
+        -ms-transform: translateX(18px);
+        transform: translateX(18px);
+      }
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $grayishBlueBg;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 2rem;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 16px;
+      height: 16px;
+      top: 3px;
+      left: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+  }
+
+  // Line Break
+
+  &__break {
+    border-top: 2px solid $veryPaleBlue;
+    width: 100%;
+    margin: 2em 0em 1.5em 0em;
+  }
+
+  // Footer
+  &__footer {
+    width: 100%;
+    padding: 0em 2.6em 2em 3.2em;
+    @include flex(flex, center, space-between);
+
+    @include media("<=600px") {
+      flex-direction: column;
+    }
+  }
+
+  &__feature {
+    margin-bottom: 0.35em;
+
+    @include media("<=600px") {
+      text-align: center;
+    }
+  }
+
+  &__bonus {
+    font-size: 12px;
+    margin-left: 1em;
+  }
+
+  &__button {
+    padding: 1em 3.2em;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: $paleBlue;
+    background-color: $darkBlue;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+    }
+
+    @include media("<=600px") {
+      margin-top: 2em;
+    }
+  }
+}
+
+@keyframes changecolor {
+  0% {
+      color: $strongCyan;
+  }
+  100% {
+      color: $grayishBlueText;
+  }
+}
+
+@keyframes changecolor-prices {
+  0% {
+      color: $strongCyan;
+  }
+  100% {
+      color: $darkBlue;
+  }
+}

@@ -11,7 +11,60 @@
 
 </head>
 <body>
-  
+  <header class="header">
+    <img src="/images/pattern-circles.svg" alt="Circles" class="header__circles">
+    <h1 class="header__title">Simple, traffic-based pricing</h1>
+    <div class="header__desc">
+      <span class="header__line header__line--one">Sign-up for our 30-day trial.</span>
+      <span class="header__line header__line--two">No credit card required.</span>  
+    </div>
+  </header>
+
+  <div class="component">
+
+    <div class="component__header">
+      <h3 class="component__views">100K PAGEVIEWS</h3>
+      <h1 class="component__amount"><span class="component__price">$16.00</span><span class="component__month">/ month</span></h1>
+      <div class="component__sliderContainer">
+        <input type="range" min="1" max="5" value="3" class="component__slider">
+      </div>
+    </div>
+
+    <div class="component__options">
+      <span class="component__monthly">Monthly Billing</span>
+      <label class="component__switch">
+        <input type="checkbox" class="component__input">
+        <span class="component__toggle"></span>
+      </label>
+      <span class="component__yearly">Yearly Billing</span>
+      <div class="component__discount"><span>25% discount</span></div>
+    </div>
+
+    <hr class="component__break">
+
+    <div class="component__footer">
+      <div class="component__features">
+        <div class="component__feature">
+          <img src="images/icon-check.svg" class="component__check">
+          <span class="component__bonus">Unlimited websites</span>
+        </div>
+        <div class="component__feature">
+          <img src="images/icon-check.svg" class="component__check">
+          <span class="component__bonus">100% data ownership</span>
+        </div>
+        <div class="component__feature">
+          <img src="images/icon-check.svg" class="component__check">
+          <span class="component__bonus">Email reports</span>
+        </div>
+      </div>
+      <button class="component__button">Start my trial</button>
+    </div>
+
+  </div>
+
+
+
+
   <script src="main.js"></script>
 </body>
 </html>
