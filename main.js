@@ -48,7 +48,6 @@ function resetAnimationBoth() {
 toggle.addEventListener('change', (e) => {
     month.innerText = toggle.checked ? '/year' : '/month'
     price.innerText = prices[toggle.checked ? 1 : 0][slider.value - 1]
-
     resetAnimationPrice()
 })
 
